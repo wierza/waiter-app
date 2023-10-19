@@ -4,7 +4,7 @@ import Header from "./components/views/Header";
 import Footer from "./components/views/Footer";
 import Home from './components/pages/Home';
 import NotFound from './components/pages/NotFound';
-import Table from './components/pages/Table';
+import SingleTable from './components/pages/SingleTable';
 
 function App() {
   return (
@@ -13,7 +13,7 @@ function App() {
         <Header />
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/table/:id" element={<Table />} />
+          <Route path="/table/:id" element={<SingleTable />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
         <Footer />
