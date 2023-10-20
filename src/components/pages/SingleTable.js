@@ -45,16 +45,25 @@ const SingleTable = () => {
         navigate('/');
     };
 
+    const handleStatusChange = (e) => {
+        const newStatus = e.target.value;
+        setStatus(newStatus);
+    
+        if (newStatus === "Busy") {
+            setBill(0);
+        }
+    };
+
     const handlePeopleAmountChange = (e) => {
         const value = parseInt(e.target.value);
-        if (!isNaN(value) && value >= 0 && value <= maxPeopleAmount) {
+        if (!isNaN(value) && value >= 0 && value <= 10 && value <= maxPeopleAmount) {
             setPeopleAmount(value);
         }
     };
 
     const handleMaxPeopleAmountChange = (e) => {
         const value = parseInt(e.target.value);
-        if (!isNaN(value) && value >= 1 && value >= peopleAmount) {
+        if (!isNaN(value) && value >= 1 && value <= 10 && value >= peopleAmount) {
             setMaxPeopleAmount(value);
         }
     };
@@ -102,7 +111,7 @@ const SingleTable = () => {
                         <strong> Status: </strong>
                     </Form.Label>
                     <Col sm={3}>
-                        <Form.Select value={status} onChange={e => setStatus(e.target.value)}>
+                        <Form.Select value={status} onChange={handleStatusChange}>
                             <option value='Busy'> Busy </option>
                             <option value='Free'> Free </option>
                             <option value='Cleaning'> Cleaning </option>

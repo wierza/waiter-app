@@ -1,4 +1,5 @@
 import { setLoading } from "./loaderRedux.js";
+import { API_URL } from "../config.js";
 //selectors
 
 export const getAllTables = (state) => state.tables;
@@ -8,7 +9,6 @@ export const getTableById = ({ tables }, id) => tables.find((table) => table.id 
 const createActionName = actionName => `app/tables/${actionName}`;
 const UPDATE_TABLES = createActionName('UPDATE_TABLES');
 const EDIT_TABLE = createActionName('EDIT_TABLE');
-const API_URL = process.env.NODE_ENV === 'production' ?  '/api' : 'http://localhost:3131/api'
 
 // action creators
 export const updateTables = payload => ({ type: UPDATE_TABLES, payload });
